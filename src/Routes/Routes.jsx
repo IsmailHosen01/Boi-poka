@@ -11,6 +11,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch('booksData.json'),
+        hydrateFallbackElement: <p>loading.....</p>,
         path: '/',
         Component: Home,
       }
