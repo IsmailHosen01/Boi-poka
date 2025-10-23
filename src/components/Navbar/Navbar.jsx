@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
     const links = <>
-        <li><a><button className="btn btn-outline border-[#23BE0A] text-[#23BE0A] font-bold">Home</button></a></li>
+        <li><a>Home</a></li>
         <li><a>Listed Books</a></li>
         <li><a>Pages to Read</a></li>
     </>
@@ -27,7 +27,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <button className="btn bg-[#23BE0A] text-white">Sign In</button>
+                <button className="btn bg-[#50B1C9] text-white ml-4">Sign Up</button>
             </div>
         </div>
     );
