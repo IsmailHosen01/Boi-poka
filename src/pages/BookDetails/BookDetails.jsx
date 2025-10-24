@@ -1,11 +1,22 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoredDB } from '../../utility/addToDB';
 
 const BookDetails = () => {
     const { id } = useParams();
     const data = useLoaderData()
     const singleBook = data.find(book => book.bookId == id);
     const { bookName, author, category, image, publisher, rating, review, tags, totalPages, yearOfPublishing } = singleBook;
+
+    const handleMarkAsRead = id => {
+        // store with id
+        // where to store
+        // array or collection
+        // if book is already exist then show an alert
+        // if book is not exist then push it array or collection
+
+        addToStoredDB(id);
+    }
     return (
         <div className='flex flex-col lg:flex-row gap-10 p-5'>
             <div className='flex-1 bg-[#1313130d] p-5 rounded-xl flex justify-center items-center'>
@@ -48,8 +59,8 @@ const BookDetails = () => {
                 </div>
 
                 <div className='mt-5'>
-                    <button className="btn btn-outline">Read</button>
-                    <button className="btn bg-[#50B1C9] text-white ml-4">Wishlist</button>
+                    <button onClick={() => handleMarkAsRead(id)} className="btn btn-outline">Mark As Read</button>
+                    <button className="btn bg-[#50B1C9] text-white ml-4">Add To Wishlist</button>
                 </div>
             </div>
         </div>
